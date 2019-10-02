@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('age');
+Route::get('/', 'HomeController@index')->middleware('auth');
 
 Auth::routes();
 Route::get('/admin', 'AdminController@index');
 Route::get('/superadmin', 'SuperAdminController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
